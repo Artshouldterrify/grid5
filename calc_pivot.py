@@ -31,7 +31,7 @@ def augument_pivot(pivot, items_list, users_list):
     return pivot
 
 
-df = pd.read_csv("ratings.csv")
+df = pd.read_csv("data/ratings.csv")
 item_list = df['movieId'].unique().tolist()
 item_list = sorted(item_list)
 user_list = df['userId'].unique().tolist()
@@ -50,7 +50,7 @@ s = SimiliarityRecommender(df_train, train_user_list, train_item_list)
 s_pivot = s.make_prediction_pivot()
 s_pivot = augument_pivot(s_pivot, item_list, user_list)
 e2 = Evaluator(test_df=df_test, pivot=s_pivot)
-con_pivot = pd.read_csv("content_pivot.csv", index_col=0)
+con_pivot = pd.read_csv("data/content_pivot.csv", index_col=0)
 con_pivot.columns = con_pivot.columns.astype(int)
 con_pivot = con_pivot[item_list]
 e3 = Evaluator(test_df=df_test, pivot=con_pivot)
@@ -61,4 +61,4 @@ best_vector = list()
 weight_list = [100, 10, 10, 10]
 pivot_list = [c_pivot, s_pivot, p_pivot, con_pivot]
 pivot = combine_pivots(pivot_list, weight_list)
-pivot.to_csv("pivot.csv")
+pivot.to_csv("data/pivot.csv")
