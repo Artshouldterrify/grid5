@@ -30,6 +30,7 @@ Options:
 1. Add Review    2. Get recommendations   3. Print previously rated movies    4. Browse an item   5. Exit
 Enter your choice: 
 ```
+Enter a choice, 1-5.
 The choices perform the following functions:
 
 #### a. As the user, add a review for a movie to the ratings database.
