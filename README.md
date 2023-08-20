@@ -11,6 +11,8 @@ Generates rankings for all models and combines them into a single model which is
 Modules containing the implementations of the individual collaborative filtering, content-based filtering, popularity and user-user similarity models respectively.
 ### 4. main.py
 The main script simulating the interaction between a user and the system. 
+### 5. Evaluation.py
+Module to calculate accuracy metrics precision@k, recall@k, mean-average-precision@k and RMSE.
 
 # Usage
 ### 1. Creating Pivot Table
