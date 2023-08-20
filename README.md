@@ -31,6 +31,7 @@ Options:
 Enter your choice: 
 ```
 Enter a choice, 1-5.
+
 The choices perform the following functions:
 
 #### a. As the user, add a review for a movie to the ratings database.
