@@ -3,11 +3,11 @@ import surprise as sp
 import warnings; warnings.simplefilter('ignore')
 
 
-ratings = pd.read_csv('ratings.csv')
+ratings = pd.read_csv('data/ratings.csv')
 ratings.head(10)
 reader = sp.Reader()
 data = sp.Dataset.load_from_df(ratings[['userId', 'movieId', 'rating']], reader)
-movies_df = pd.read_csv('movies.csv')
+movies_df = pd.read_csv('data/movies.csv')
 movies_df['year'] = movies_df.title.str.extract('(\(\d\d\d\d\))',expand=False)
 movies_df['year'] = movies_df.year.str.extract('(\d\d\d\d)',expand=False)
 movies_df['title'] = movies_df.title.str.replace('(\(\d\d\d\d\))', '')
@@ -59,4 +59,4 @@ for column in df_min_max_scaled.columns:
 print(df_min_max_scaled)
 df = df_min_max_scaled.transpose()
 print(df)
-df.to_csv("content_pivot.csv")
+df.to_csv("data/content_pivot.csv")
