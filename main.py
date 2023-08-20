@@ -46,10 +46,9 @@ def recommend(pivot, user_id, to_ignore):
 
 
 # main function
-pivot_df = pd.read_csv("pivot.csv", index_col=0)
-print(pivot_df.columns)
-movie_details_df = pd.read_csv("movies.csv")
-ratings_df = pd.read_csv("ratings.csv")
+pivot_df = pd.read_csv("data/pivot.csv", index_col=0)
+movie_details_df = pd.read_csv("data/movies.csv")
+ratings_df = pd.read_csv("data/ratings.csv")
 user_list = set(ratings_df['userId'].unique().tolist())
 movie_list = set(ratings_df['movieId'].unique().tolist())
 while True:
@@ -110,4 +109,4 @@ while True:
         continue
     else:
         break
-ratings_df.to_csv("ratings.csv", index=False)
+ratings_df.to_csv("data/ratings.csv", index=False)
